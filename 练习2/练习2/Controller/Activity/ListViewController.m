@@ -23,6 +23,8 @@
 @property(strong,nonatomic)NSMutableArray *arr;
 - (IBAction)searchAction:(UIBarButtonItem *)sender;
 - (IBAction)favoAction:(UIButton *)sender forEvent:(UIEvent *)event;
+- (IBAction)switchAction:(UIBarButtonItem *)sender;
+
 @property (strong,nonatomic) UIImageView *zoomIV;
 @property (strong,nonatomic)UIActivityIndicatorView *aiv;
 @end
@@ -479,6 +481,11 @@
   
     }
     }
+
+- (IBAction)switchAction:(UIBarButtonItem *)sender {
+}
+
+
 
 //当某一个页面跳转行为将要发生的时候
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

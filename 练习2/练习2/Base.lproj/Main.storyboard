@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xFM-mU-uB2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--活动-->
+        <!--List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ListViewController" sceneMemberID="viewController">
@@ -149,7 +149,24 @@
                             <constraint firstItem="Vrb-Jf-V80" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oq0-JU-KN8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="活动" id="h6F-ZU-7vZ">
+                    <navigationItem key="navigationItem" id="h6F-ZU-7vZ">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="jIq-e4-iRl">
+                            <connections>
+                                <action selector="switchAction:" destination="BYZ-38-t0r" id="E4M-6w-DAM"/>
+                            </connections>
+                        </barButtonItem>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="F7G-YX-De8">
+                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <state key="normal" title="苏州">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <segue destination="RMr-0A-7yk" kind="presentation" id="Qg8-Os-fGD"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="WYm-3O-dzk">
                             <connections>
                                 <action selector="searchAction:" destination="BYZ-38-t0r" id="71r-YL-tH3"/>
@@ -165,18 +182,47 @@
             </objects>
             <point key="canvasLocation" x="1129" y="440"/>
         </scene>
+        <!--选择城市-->
+        <scene sceneID="B34-vl-fnw">
+            <objects>
+                <tableViewController id="Ofk-Vi-Uqv" customClass="CityTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="yyE-h2-qUX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ARm-wC-JiL">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ARm-wC-JiL" id="PE9-R6-sZZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ofk-Vi-Uqv" id="7Hc-Ng-EhW"/>
+                            <outlet property="delegate" destination="Ofk-Vi-Uqv" id="OWX-Hk-kVa"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="选择城市" id="Rkg-Zc-ZVS"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gda-ja-3kJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2895.1999999999998" y="439.43028485757122"/>
+        </scene>
         <!--Detail-->
         <scene sceneID="hqn-fg-BIw">
             <objects>
                 <viewControllerPlaceholder storyboardName="Detail" id="zhs-hj-bTs" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gaQ-Tm-FBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1856" y="477"/>
+            <point key="canvasLocation" x="1128" y="822"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Txq-DJ-qZL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xFM-mU-uB2" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavi" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xFM-mU-uB2" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5F5-31-3Y8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -190,6 +236,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LS4-FL-YkL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="321" y="441"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="J5h-Oe-WNx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RMr-0A-7yk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2TV-Lf-mpI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ofk-Vi-Uqv" kind="relationship" relationship="rootViewController" id="PMx-MM-jLF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PCl-jb-lWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1956" y="439.43028485757122"/>
         </scene>
     </scenes>
     <resources>
