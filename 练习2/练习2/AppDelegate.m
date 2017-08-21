@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
 
-@interface AppDelegate ()
+@interface AppDelegate ()<ECSlidingViewControllerDelegate>
 
 @property (strong,nonatomic) ECSlidingViewController *slidingVC;
 
@@ -28,6 +28,8 @@
     UINavigationController *navi=[Utilities getStoryboardInstance:@"Main" byIdentity:@"HomeNavi"];
     //创建门框(初始化的同时顺便设置好门框最外层的那扇门，也就是用户首先会看到的正中间的页面)
     _slidingVC=[[ECSlidingViewController alloc]initWithTopViewController:navi];
+    //签协议
+    //_slidingVC.delegate=self;
     //放好左边那扇门
     _slidingVC.underLeftViewController = [Utilities getStoryboardInstance:@"Member" byIdentity:@"Left"];
     //设置手势（表示让中间的门能够对拖拽与触摸响应）
@@ -47,6 +49,14 @@
 //当收到通知后要执行的方法
 - (void)leftSwitchAction:(NSNotification *)note{
     NSLog(@"dsgfadsfg");
+    //当打开的状态下合上，合上的状态下打开
+    if (_slidingVC.currentTopViewPosition == ECSlidingViewControllerTopViewPositionCentered) {
+        // 合上的状态下打开
+        [_slidingVC anchorTopViewToRightAnimated:YES];
+    }else{
+        // 打开的状态下合上
+        [_slidingVC resetTopViewAnimated:YES];
+    }
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
