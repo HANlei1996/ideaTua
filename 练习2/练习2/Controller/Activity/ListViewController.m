@@ -22,6 +22,7 @@
     BOOL firstVisit;
 }
 @property (weak, nonatomic) IBOutlet UITableView *activiyTableView;
+@property (weak, nonatomic) IBOutlet UIButton *CityBtn;
 @property(strong,nonatomic)NSMutableArray *arr;
 - (IBAction)searchAction:(UIBarButtonItem *)sender;
 - (IBAction)favoAction:(UIButton *)sender forEvent:(UIEvent *)event;
@@ -31,6 +32,8 @@
 @property (strong,nonatomic)UIActivityIndicatorView *aiv;
 @property (strong,nonatomic) CLLocationManager *locMgr;
 @property (strong,nonatomic) CLLocation *location;
+
+
 
 @end
 
@@ -54,6 +57,7 @@
     [self uilay];
     [self locationConfig];
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(checkCityState:) name:@"ResetHome" object:nil];
     
 }
 //每次将要来都这个页面的时候
@@ -68,6 +72,7 @@
 //每次将要离开这个页面的时候
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    [_locMgr stopUpdatingLocation];
 }
 //每次离开这个页面的时候
 -(void)viewDidDisappear:(BOOL)animated{
@@ -170,6 +175,26 @@
 
 //专门做数据的处理
 -(void)data{
+    BOOL appInit = NO;
+    if ([[Utilities getUserDefaults:@"UserCity"] isKindOfClass:[NSNull class]]) {
+        //说明不是第一次打开APP
+        appInit = YES;
+    }else{
+        if ([Utilities getUserDefaults:@"UserCity"] == nil) {
+            //也说明是第一次打开APP
+            appInit = YES;
+        }if (appInit) {
+            //第一次来到APP将默认城市与记忆城市同步
+            NSString *userCity = _CityBtn.titleLabel.text;
+            [Utilities setUserDefaults:@"UserCity" content:userCity];
+        }else{
+        //不是第一次来到APP则将记忆城市与按钮城市名方向同步
+            NSString *userCity = [Utilities getUserDefaults:@"UserCity"];
+            [_CityBtn setTitle:userCity forState:UIControlStateNormal];
+        }
+    }
+    
+    
     firstVisit = YES;
     isLoading=NO;
     //初始化
@@ -209,7 +234,7 @@
         //设置接口地址
         NSString *request=@"/event/list";
         //设置接口入参
-        NSDictionary *parameter=@{@"page":@(page),@"perPage":@(perPage)};
+        NSDictionary *parameter=@{@"page":@(page),@"perPage":@(perPage),@"city": _CityBtn.titleLabel.text};
         //开始请求
         [RequestAPI requestURL:request withParameters:parameter andHeader:nil byMethod:kGet andSerializer:kForm success:^(id responseObject) {
             //成功以后要做的事情在此处执行
@@ -520,6 +545,8 @@
 
 
 
+
+
 //当某一个页面跳转行为将要发生的时候
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"List2Detail"]) {
@@ -577,8 +604,8 @@
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation{
-    NSLog(@"纬度: %f",newLocation.coordinate.latitude);
-    NSLog(@"经度: %f",newLocation.coordinate.longitude);
+    //NSLog(@"纬度: %f",newLocation.coordinate.latitude);
+    //NSLog(@"经度: %f",newLocation.coordinate.longitude);
     _location = newLocation;
     //用flag思想判断是否可以去根据定位拿到城市
     if (firstVisit) {
@@ -599,15 +626,47 @@
             if (!error) {
                 CLPlacemark *first = placemarks.firstObject;
                 NSDictionary *locDict = first.addressDictionary;
-                NSLog(@"%@",locDict);
+                NSLog(@"locDict = %@",locDict);
                 NSString *cityStr = locDict[@"City"];
                 //把city的市子去掉
-                cityStr = [cityStr substringFromIndex:(cityStr.length - 1)];
+                cityStr = [cityStr substringToIndex:(cityStr.length - 0)];
+                [[StorageMgr singletonStorageMgr]removeObjectForKey:@"LocCity"];
+                //将定位到的城市保存进单例化全局变量
+                [[StorageMgr singletonStorageMgr] addKey:@"LocCity" andValue:cityStr];
+                if (![cityStr isEqualToString:_CityBtn.titleLabel.text]) {
+                    //将定位的城市和当前选则的城市不一样的时候去弹窗询问用户是否要切换城市
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"当前定位到的城市为%@,请问您是否需要切换" ,cityStr] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        //修改城市按钮标题
+                        [_CityBtn setTitle:cityStr forState:UIControlStateNormal];
+                        //修改用户选择的城市记忆体
+                        [Utilities removeUserDefaults:@"UserCity"];
+                        [Utilities setUserDefaults:@"UserCity" content:cityStr];
+                        //重新执行网络请求
+                        [self network];
+                    }];
+                    UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+                    [alert addAction:yesAction];
+                    [alert addAction:noAction];
+                    [self presentViewController:alert animated:YES completion:nil];
+                }
                 
             }
         }];
         //关掉开关
         [_locMgr stopUpdatingLocation];
     });
+}
+-(void)checkCityState:(NSNotification *)note{
+    NSString *cityStr = note.object;
+    if (![cityStr isEqualToString:_CityBtn.titleLabel.text]){
+        //修改城市按钮标题
+        [_CityBtn setTitle:cityStr forState:UIControlStateNormal];
+        //修改用户选择的城市记忆体
+        [Utilities removeUserDefaults:@"UserCity"];
+        [Utilities setUserDefaults:@"UserCity" content:cityStr];
+        //重新执行网络请求
+        [self network];
+    }
 }
 @end

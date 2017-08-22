@@ -272,10 +272,10 @@
 			children = (
 				84CF5FE61F48252100BC8CAC /* CityTableViewController.h */,
 				84CF5FE71F48252100BC8CAC /* CityTableViewController.m */,
-				84A293A21F48056B009043C9 /* DetailViewController.h */,
-				84A293A31F48056B009043C9 /* DetailViewController.m */,
 				84A293A61F48056B009043C9 /* ListViewController.h */,
 				84A293A71F48056B009043C9 /* ListViewController.m */,
+				84A293A21F48056B009043C9 /* DetailViewController.h */,
+				84A293A31F48056B009043C9 /* DetailViewController.m */,
 				84CF5FE91F4825EC00BC8CAC /* PurchaseTableViewController.h */,
 				84CF5FEA1F4825EC00BC8CAC /* PurchaseTableViewController.m */,
 			);
