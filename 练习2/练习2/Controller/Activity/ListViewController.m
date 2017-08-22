@@ -629,7 +629,7 @@
                 NSLog(@"locDict = %@",locDict);
                 NSString *cityStr = locDict[@"City"];
                 //把city的市子去掉
-                cityStr = [cityStr substringToIndex:(cityStr.length - 0)];
+                cityStr = [cityStr substringToIndex:(cityStr.length - 1)];
                 [[StorageMgr singletonStorageMgr]removeObjectForKey:@"LocCity"];
                 //将定位到的城市保存进单例化全局变量
                 [[StorageMgr singletonStorageMgr] addKey:@"LocCity" andValue:cityStr];
