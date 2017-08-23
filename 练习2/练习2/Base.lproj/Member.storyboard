@@ -182,8 +182,10 @@
                     </view>
                     <connections>
                         <outlet property="avatarImageView" destination="Cgt-nC-Kiz" id="WqJ-op-Jx7"/>
+                        <outlet property="loginBtn" destination="gng-F4-DvU" id="Ntz-5w-ITj"/>
                         <outlet property="tableView" destination="3US-mO-ik8" id="av0-ct-6ns"/>
                         <outlet property="usernameLable" destination="g8M-cP-RpU" id="7cz-oP-Zsg"/>
+                        <segue destination="0oT-97-4Xi" kind="presentation" identifier="Let2MyAct" id="abd-3P-kPe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HeA-3X-I83" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,7 +195,7 @@
         <!--注册-->
         <scene sceneID="W25-Q6-b6u">
             <objects>
-                <viewController id="cw8-AX-VV4" customClass="SignInViewController" sceneMemberID="viewController">
+                <viewController id="cw8-AX-VV4" customClass="SignUpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o8V-OD-qa2"/>
                         <viewControllerLayoutGuide type="bottom" id="pVE-uf-xyl"/>
@@ -212,7 +214,7 @@
         <!--登录-->
         <scene sceneID="Gy8-Bk-Fd9">
             <objects>
-                <viewController id="NzN-UQ-wkd" customClass="SignUpViewController" sceneMemberID="viewController">
+                <viewController id="NzN-UQ-wkd" customClass="SignInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eTL-ka-P3s"/>
                         <viewControllerLayoutGuide type="bottom" id="bNt-OC-INx"/>
@@ -225,7 +227,10 @@
                                 <rect key="frame" x="15" y="149" width="345" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="NzN-UQ-wkd" id="me3-ju-27A"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Je-Pc-gTz">
                                 <rect key="frame" x="15" y="229" width="345" height="29"/>
@@ -234,6 +239,9 @@
                                 <state key="normal" title="登录">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signBtnAction:forEvent:" destination="NzN-UQ-wkd" eventType="touchUpInside" id="KLU-sN-IBZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLg-Pf-SgG">
                                 <rect key="frame" x="15" y="266" width="345" height="24"/>
@@ -249,7 +257,10 @@
                                 <rect key="frame" x="15" y="104" width="345" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="NzN-UQ-wkd" id="0q1-zV-BNw"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901960784312" green="0.97647058823529409" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
@@ -269,6 +280,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="登录" id="ASB-IN-Xqo"/>
+                    <connections>
+                        <outlet property="passwordnameTextField" destination="ze2-Vb-j6M" id="zXt-1b-Kf6"/>
+                        <outlet property="usernameTextField" destination="X86-gE-L0l" id="1w5-Z4-pZR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fls-WZ-28U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -301,7 +316,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tmA-Ef-87I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1490" y="-321"/>
+            <point key="canvasLocation" x="1374" y="-296"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uhq-VQ-sBM">
@@ -319,7 +334,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7h2-1T-LOo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="702" y="-320"/>
+            <point key="canvasLocation" x="562" y="-296"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4kX-ng-KUI">

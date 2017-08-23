@@ -7,6 +7,7 @@
 //
 
 #import "ListViewController.h"
+
 #import "ActivityTableViewCell.h"
 #import "ActivityModel.h"
 #import "UIImageView+WebCache.h"
@@ -63,7 +64,7 @@
 //每次将要来都这个页面的时候
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self locationStart];
+        [self locationStart];
 }
 //每次到达这个页面的时候
 -(void)viewDidAppear:(BOOL)animated{

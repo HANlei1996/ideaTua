@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4E3A27F1F978BF314E9487EA /* libPods-练习2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7E999B82C3F0A3C30052B8 /* libPods-练习2.a */; };
 		7981E8861F4AC28D0005643A /* Locallzable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7981E8881F4AC28D0005643A /* Locallzable.strings */; };
+		84113D731F4D515500AE4D71 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84113D721F4D515500AE4D71 /* UserModel.m */; };
 		8477A6931F28615400447DBC /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477A6921F28615400447DBC /* ActivityModel.m */; };
 		84A0E3901F273E3E00064361 /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A0E38F1F273E3E00064361 /* ActivityTableViewCell.m */; };
 		84A293651F47E88E009043C9 /* JSONS.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A293641F47E88E009043C9 /* JSONS.m */; };
@@ -84,6 +85,8 @@
 		5AC34C4F9EBAF252D3FEBCD2 /* Pods-练习2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-练习2.release.xcconfig"; path = "Pods/Target Support Files/Pods-练习2/Pods-练习2.release.xcconfig"; sourceTree = "<group>"; };
 		7981E8871F4AC28D0005643A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Locallzable.strings; sourceTree = "<group>"; };
 		7C7E999B82C3F0A3C30052B8 /* libPods-练习2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-练习2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84113D711F4D515500AE4D71 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		84113D721F4D515500AE4D71 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		8477A6911F28615400447DBC /* ActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityModel.h; sourceTree = "<group>"; };
 		8477A6921F28615400447DBC /* ActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityModel.m; sourceTree = "<group>"; };
 		84A0E38E1F273E3E00064361 /* ActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCell.h; sourceTree = "<group>"; };
@@ -405,6 +408,8 @@
 		84E80B8A1F25D4D30025383B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84113D711F4D515500AE4D71 /* UserModel.h */,
+				84113D721F4D515500AE4D71 /* UserModel.m */,
 				84A293691F47E900009043C9 /* Order.h */,
 				84A2936A1F47E900009043C9 /* Order.m */,
 				84E80B901F25E2B70025383B /* __2.xcdatamodeld */,
@@ -695,6 +700,7 @@
 				84A293831F47E9C7009043C9 /* base64.m in Sources */,
 				84A293861F47E9C7009043C9 /* MD5DataSigner.m in Sources */,
 				84AECBB61F2EF84D00613107 /* NSString+Crypt.m in Sources */,
+				84113D731F4D515500AE4D71 /* UserModel.m in Sources */,
 				84CF5FF71F48274700BC8CAC /* SignUpViewController.m in Sources */,
 				84AECBB91F2EF84D00613107 /* Utilities.m in Sources */,
 				84CF5FEE1F48266C00BC8CAC /* LeftViewController.m in Sources */,
