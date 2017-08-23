@@ -207,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OoH-gE-OAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2356" y="389"/>
+            <point key="canvasLocation" x="2255" y="401"/>
         </scene>
         <!--登录-->
         <scene sceneID="Gy8-Bk-Fd9">
@@ -242,7 +242,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cw8-AX-VV4" kind="show" id="dTy-7x-1s4"/>
+                                    <segue destination="cw8-AX-VV4" kind="show" id="dXV-tC-GkR"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名(手机号)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X86-gE-L0l">

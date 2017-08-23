@@ -26,10 +26,9 @@
 }
 // 这个方法专门做导航条的控制
 -(void)naviConfig{
-    //设置导航条标题文字
-    self.navigationItem.title=@"发布活动";
+    
     //设置导航条的颜色（风格颜色）
-    self.navigationController.navigationBar.barTintColor=[UIColor brownColor];
+    self.navigationController.navigationBar.barTintColor=[UIColor grayColor];
     //设置导航条的标题颜色
     self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName : [UIColor whiteColor] };
     //设置导航条是否隐藏
@@ -45,8 +44,8 @@
 
 //用Model的方式返回上一页
 - (void)backAction {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    //[self.navigationController popViewControllerAnimated:YES];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 /*
 #pragma mark - Navigation
