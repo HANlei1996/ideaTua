@@ -9,7 +9,7 @@
 #import "SignUpViewController.h"
 
 @interface SignUpViewController ()<UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *userTelTextField;
 @property (weak, nonatomic) IBOutlet UITextField *nickName;
 @property (weak, nonatomic) IBOutlet UITextField *passWordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmTextField;
@@ -72,7 +72,7 @@
 }
 //按return收回键盘
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    if (textField == _userNameTextField || textField == _passWordTextField || textField == _nickName || textField == _confirmTextField || textField == _vC) {
+    if (textField == _userTelTextField || textField == _passWordTextField || textField == _nickName || textField == _confirmTextField || textField == _vC) {
         [textField resignFirstResponder];
     }
     return YES;
@@ -89,16 +89,19 @@
 //}
 
 - (IBAction)vCBtnAction:(UIButton *)sender forEvent:(UIEvent *)event {
+    [self VerificationCodeRequest];
+
 }
 
 - (IBAction)signUpAction:(UIButton *)sender forEvent:(UIEvent *)event {
-    if (_userNameTextField.text.length== 0) {
+
+    if (_userTelTextField.text.length== 0) {
         [Utilities popUpAlertViewWithMsg:@"请输入你的手机号" andTitle:nil onView:self];
         return;
     }
     //判断某个字符串中是否每个字符都是数字
     NSCharacterSet *notDigits=[[NSCharacterSet decimalDigitCharacterSet]invertedSet];
-    if ([_userNameTextField.text rangeOfCharacterFromSet:notDigits].location != NSNotFound || _userNameTextField.text.length != 11) {
+    if ([_userTelTextField.text rangeOfCharacterFromSet:notDigits].location != NSNotFound || _userTelTextField.text.length != 11) {
         [Utilities popUpAlertViewWithMsg:@"请输入有效的手机号码" andTitle:nil onView:self];
         return;
     }
@@ -116,17 +119,34 @@
         return;
     }
     if ([_passWordTextField.text isEqualToString:_confirmTextField.text]) {
-         [self request];
+        // [self request];
     }else{
         [Utilities popUpAlertViewWithMsg:@"密码输入不一致，请重新输入" andTitle:@"提示" onView:self];
-        _passWordTextField.text = @"";
+       // _passWordTextField.text = @"";
         _confirmTextField.text = @"";
     }
-}
-- (void)request{
+    }
+/*- (void)request{
     _avi = [Utilities getCoverOnView:self.view];
     
-    [RequestAPI requestURL:@"/register" withParameters:@{@"userTel":_userNameTextField.text,@"userPwd":_passWordTextField.text,@"nickName":_nickName.text,@"nums":_confirmTextField.text,@"deviceType":@7001,@"deviceId":[Utilities uniqueVendor]} andHeader:nil byMethod:kGet andSerializer:kForm success:^(id responseObject) {
+    [RequestAPI requestURL:@"/register" withParameters:@{@"userTel":_userTelTextField.text,@"userPwd":_passWordTextField.text,@"nickName":_nickName.text,@"nums":_vC,@"city":,@"deviceType":@7001,@"deviceId":[Utilities uniqueVendor]} andHeader:nil byMethod:kPost andSerializer:kJson success:^(id responseObject) {
+        NSLog(@"responseObject:%@", responseObject);
+        if ([responseObject[@"resultFlag"]integerValue]==8001) {
+            //[_avi stopAnimating];
+            
+        }else{
+            [_avi stopAnimating];
+            NSString *errorMsg=[ErrorHandler getProperErrorString:[responseObject[@"resultFlag"]integerValue]];
+            [Utilities popUpAlertViewWithMsg:errorMsg andTitle:nil onView:self];
+        }
+    } failure:^(NSInteger statusCode, NSError *error) {
+        [_avi stopAnimating];
+        [Utilities popUpAlertViewWithMsg:@"网络错误,请稍等再试" andTitle:@"提示" onView:self];
+    }];
+}*/
+- (void)VerificationCodeRequest{
+
+    [RequestAPI requestURL:@"/register/verificationCode" withParameters:@{@"userTel":_userTelTextField.text,@"type":@(1)} andHeader:nil byMethod:kGet andSerializer:kForm success:^(id responseObject) {
         NSLog(@"responseObject:%@", responseObject);
         if ([responseObject[@"resultFlag"]integerValue]==8001) {
             //[_avi stopAnimating];
@@ -141,4 +161,5 @@
         [Utilities popUpAlertViewWithMsg:@"网络错误,请稍等再试" andTitle:@"提示" onView:self];
     }];
 }
+
 @end

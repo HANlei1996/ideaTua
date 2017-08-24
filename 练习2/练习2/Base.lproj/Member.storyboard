@@ -313,7 +313,7 @@
                         <outlet property="confirmTextField" destination="YYG-zv-4rr" id="893-aE-aAc"/>
                         <outlet property="nickName" destination="xSh-B2-VXm" id="zs8-ZR-W6Y"/>
                         <outlet property="passWordTextField" destination="iQh-eu-LkV" id="DMR-r1-djh"/>
-                        <outlet property="userNameTextField" destination="vLG-ia-Tsw" id="RQA-d9-WHB"/>
+                        <outlet property="userTelTextField" destination="vLG-ia-Tsw" id="eSr-YQ-T8f"/>
                         <outlet property="vC" destination="qsJ-WN-wgQ" id="Fy2-NQ-ppO"/>
                         <outlet property="vCBtn" destination="g6g-NA-IXE" id="ts5-Bo-P2O"/>
                     </connections>
