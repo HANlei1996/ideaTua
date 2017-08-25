@@ -10,6 +10,7 @@
 		4E3A27F1F978BF314E9487EA /* libPods-练习2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7E999B82C3F0A3C30052B8 /* libPods-练习2.a */; };
 		7981E8861F4AC28D0005643A /* Locallzable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7981E8881F4AC28D0005643A /* Locallzable.strings */; };
 		84113D731F4D515500AE4D71 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84113D721F4D515500AE4D71 /* UserModel.m */; };
+		8464E1C31F4FB99F005FCA5F /* Openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8464E1C21F4FB99F005FCA5F /* Openssl.framework */; };
 		8477A6931F28615400447DBC /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477A6921F28615400447DBC /* ActivityModel.m */; };
 		84A0E3901F273E3E00064361 /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A0E38F1F273E3E00064361 /* ActivityTableViewCell.m */; };
 		84A293651F47E88E009043C9 /* JSONS.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A293641F47E88E009043C9 /* JSONS.m */; };
@@ -44,7 +45,6 @@
 		84AECBB71F2EF84D00613107 /* RequestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AECBAC1F2EF84D00613107 /* RequestAPI.m */; };
 		84AECBB81F2EF84D00613107 /* StorageMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AECBAE1F2EF84D00613107 /* StorageMgr.m */; };
 		84AECBB91F2EF84D00613107 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AECBB01F2EF84D00613107 /* Utilities.m */; };
-		84AECBBC1F2EFBC600613107 /* Openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AECBBB1F2EFBC600613107 /* Openssl.framework */; };
 		84AECBC01F2EFC8C00613107 /* BasicEncodingRules.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AECBBF1F2EFC8C00613107 /* BasicEncodingRules.m */; };
 		84CF5FA31F4811D200BC8CAC /* Issue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CF5FA11F4811D200BC8CAC /* Issue.storyboard */; };
 		84CF5FE81F48252100BC8CAC /* CityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF5FE71F48252100BC8CAC /* CityTableViewController.m */; };
@@ -87,6 +87,7 @@
 		7C7E999B82C3F0A3C30052B8 /* libPods-练习2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-练习2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84113D711F4D515500AE4D71 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		84113D721F4D515500AE4D71 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		8464E1C21F4FB99F005FCA5F /* Openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Openssl.framework; path = "练习2/Openssl.framework"; sourceTree = "<group>"; };
 		8477A6911F28615400447DBC /* ActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityModel.h; sourceTree = "<group>"; };
 		8477A6921F28615400447DBC /* ActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityModel.m; sourceTree = "<group>"; };
 		84A0E38E1F273E3E00064361 /* ActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCell.h; sourceTree = "<group>"; };
@@ -149,7 +150,6 @@
 		84AECBAF1F2EF84D00613107 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utilities.h; path = Utility/Utilities.h; sourceTree = "<group>"; };
 		84AECBB01F2EF84D00613107 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utilities.m; path = Utility/Utilities.m; sourceTree = "<group>"; };
 		84AECBBA1F2EF86E00613107 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Constant/Constants.h; sourceTree = "<group>"; };
-		84AECBBB1F2EFBC600613107 /* Openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Openssl.framework; path = "练习2/Openssl.framework"; sourceTree = "<group>"; };
 		84AECBBE1F2EFC8C00613107 /* BasicEncodingRules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicEncodingRules.h; sourceTree = "<group>"; };
 		84AECBBF1F2EFC8C00613107 /* BasicEncodingRules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicEncodingRules.m; sourceTree = "<group>"; };
 		84CF5FA21F4811D200BC8CAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "练习2/Base.lproj/Issue.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -190,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8464E1C31F4FB99F005FCA5F /* Openssl.framework in Frameworks */,
 				84A2939A1F47EC56009043C9 /* libz.tbd in Frameworks */,
 				84A293981F47EC1D009043C9 /* CoreMotion.framework in Frameworks */,
 				84A293961F47EBEC009043C9 /* CoreTelephony.framework in Frameworks */,
@@ -197,7 +198,6 @@
 				84A293901F47EA70009043C9 /* AlipaySDK.bundle in Frameworks */,
 				84A293911F47EA70009043C9 /* libcrypto.a in Frameworks */,
 				84A293921F47EA70009043C9 /* libssl.a in Frameworks */,
-				84AECBBC1F2EFBC600613107 /* Openssl.framework in Frameworks */,
 				4E3A27F1F978BF314E9487EA /* libPods-练习2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +222,7 @@
 		5EF6E78C32D335F43A91C97C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8464E1C21F4FB99F005FCA5F /* Openssl.framework */,
 				84A293991F47EC56009043C9 /* libz.tbd */,
 				84A293971F47EC1D009043C9 /* CoreMotion.framework */,
 				84A293951F47EBEC009043C9 /* CoreTelephony.framework */,
@@ -328,7 +329,6 @@
 		84E80B451F25D1D30025383B = {
 			isa = PBXGroup;
 			children = (
-				84AECBBB1F2EFBC600613107 /* Openssl.framework */,
 				84E80B501F25D1D30025383B /* 练习2 */,
 				84E80B6D1F25D1D30025383B /* 练习2Tests */,
 				84E80B781F25D1D30025383B /* 练习2UITests */,

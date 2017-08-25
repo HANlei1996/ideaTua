@@ -39,7 +39,7 @@
                                             <constraint firstAttribute="width" secondItem="PYa-o9-ynz" secondAttribute="height" multiplier="3:2" id="6GL-84-2Hb"/>
                                         </constraints>
                                     </stackView>
-                                    <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGA-jd-6Mz">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGA-jd-6Mz">
                                         <rect key="frame" x="0.0" y="186.5" width="374" height="63"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动报名费：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xk0-cU-3xb">
@@ -73,7 +73,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.15686274509803921" green="0.12941176469999999" blue="0.14117647059999999" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.15686274509803921" green="0.12941176469999999" blue="0.14117647059999999" alpha="0.3964345637583892" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="jyk-Y2-wPs" firstAttribute="leading" secondItem="xk0-cU-3xb" secondAttribute="trailing" constant="5" id="Aab-oO-NLa"/>
                                             <constraint firstItem="jyk-Y2-wPs" firstAttribute="centerY" secondItem="DGA-jd-6Mz" secondAttribute="centerY" id="Ebl-ik-drJ"/>
@@ -84,19 +84,19 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="报名状态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHX-sJ-KR2">
-                                        <rect key="frame" x="15" y="259.5" width="69.5" height="20.5"/>
+                                        <rect key="frame" x="15" y="269.5" width="69.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OlK-IL-iI5">
-                                        <rect key="frame" x="337.5" y="259.5" width="26.5" height="20.5"/>
+                                        <rect key="frame" x="337.5" y="269.5" width="26.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QiE-hv-wOA">
-                                        <rect key="frame" x="0.0" y="290" width="374" height="100"/>
+                                        <rect key="frame" x="0.0" y="300" width="374" height="100"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZN7-0f-xuW">
                                                 <rect key="frame" x="15" y="10" width="61.5" height="18"/>
@@ -140,20 +140,20 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="报名截止时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBa-DR-2Lp">
-                                        <rect key="frame" x="15" y="400" width="104" height="20.5"/>
+                                        <rect key="frame" x="15" y="410" width="104" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Gc-yp-Dic">
-                                        <rect key="frame" x="15" y="430.5" width="213" height="30"/>
+                                        <rect key="frame" x="15" y="440.5" width="213" height="30"/>
                                         <state key="normal" title="联系活动发布者：1345654544"/>
                                         <connections>
                                             <action selector="callAction:forEvent:" destination="TER-SZ-3Zd" eventType="touchUpInside" id="te5-mZ-8dT"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B8i-15-p8r">
-                                        <rect key="frame" x="0.0" y="465.5" width="374" height="65"/>
+                                        <rect key="frame" x="0.0" y="475.5" width="374" height="65"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkg-rN-jny">
                                                 <rect key="frame" x="0.0" y="0.0" width="93.5" height="65"/>
@@ -288,7 +288,7 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动内容" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSd-55-H1v">
-                                        <rect key="frame" x="15" y="540.5" width="344" height="18"/>
+                                        <rect key="frame" x="15" y="550.5" width="344" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -313,7 +313,7 @@
                                     <constraint firstAttribute="trailing" secondItem="WSd-55-H1v" secondAttribute="trailing" constant="15" id="XCl-ht-d9H"/>
                                     <constraint firstItem="WSd-55-H1v" firstAttribute="leading" secondItem="VEG-q4-KYN" secondAttribute="leading" constant="15" id="YCH-Ef-4QF"/>
                                     <constraint firstItem="YBa-DR-2Lp" firstAttribute="top" secondItem="QiE-hv-wOA" secondAttribute="bottom" constant="10" id="aOc-cP-lQx"/>
-                                    <constraint firstItem="KHX-sJ-KR2" firstAttribute="top" secondItem="DGA-jd-6Mz" secondAttribute="bottom" constant="10" id="dE3-4Y-VXl"/>
+                                    <constraint firstItem="KHX-sJ-KR2" firstAttribute="top" secondItem="DGA-jd-6Mz" secondAttribute="bottom" constant="20" id="dE3-4Y-VXl"/>
                                     <constraint firstAttribute="trailing" secondItem="DGA-jd-6Mz" secondAttribute="trailing" id="fqk-ui-OLY"/>
                                     <constraint firstItem="3Gc-yp-Dic" firstAttribute="top" secondItem="YBa-DR-2Lp" secondAttribute="bottom" constant="10" id="h9G-cx-Vtk"/>
                                     <constraint firstAttribute="bottom" secondItem="WSd-55-H1v" secondAttribute="bottom" constant="20" id="m1f-SV-mRf"/>
@@ -336,6 +336,8 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="DetailView" destination="mZ1-aN-bcc" id="B6e-z4-7VA"/>
+                        <outlet property="ScrollView" destination="VEG-q4-KYN" id="2Yg-ZY-AnT"/>
                         <outlet property="activityImgView" destination="993-gh-J14" id="va6-zz-2tq"/>
                         <outlet property="addressLbl" destination="XEX-es-gl2" id="2QM-J9-NDs"/>
                         <outlet property="applyBtn" destination="A6i-3E-szm" id="51x-ab-3kg"/>
@@ -349,7 +351,7 @@
                         <outlet property="attendenceLbl" destination="OlK-IL-iI5" id="a3U-jk-RPy"/>
                         <outlet property="contentLbl" destination="WSd-55-H1v" id="Wq7-kA-iXJ"/>
                         <outlet property="issuerLbl" destination="V8p-rN-TCN" id="C8M-YD-j7g"/>
-                        <outlet property="phone" destination="3Gc-yp-Dic" id="9ps-fG-9sS"/>
+                        <outlet property="phoneBtn" destination="3Gc-yp-Dic" id="bcS-kH-w3k"/>
                         <outlet property="timeLbl" destination="5NC-oi-7JX" id="Mxt-7B-bN9"/>
                         <outlet property="typeLbl" destination="ZN7-0f-xuW" id="aDR-Q4-5d0"/>
                     </connections>
@@ -361,7 +363,7 @@
         <!--Purchase Table View Controller-->
         <scene sceneID="gcd-Ki-alb">
             <objects>
-                <tableViewController id="6CC-KZ-L1C" customClass="PurchaseTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Purchase" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6CC-KZ-L1C" customClass="PurchaseTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vz2-R9-Ud3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
