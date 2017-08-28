@@ -222,8 +222,8 @@
 		5EF6E78C32D335F43A91C97C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8464E1C21F4FB99F005FCA5F /* Openssl.framework */,
 				84A293991F47EC56009043C9 /* libz.tbd */,
+				8464E1C21F4FB99F005FCA5F /* Openssl.framework */,
 				84A293971F47EC1D009043C9 /* CoreMotion.framework */,
 				84A293951F47EBEC009043C9 /* CoreTelephony.framework */,
 				84A2938B1F47EA70009043C9 /* AlipaySDK.framework */,

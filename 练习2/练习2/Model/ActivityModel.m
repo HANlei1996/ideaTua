@@ -53,7 +53,7 @@
         _endTime=[dict[@"endDate"]isKindOfClass:[NSNull class]] ? (NSTimeInterval)0: (NSTimeInterval)[dict[@"endDate"]integerValue];
         _status=[dict[@"applyStatus"]isKindOfClass:[NSNull class]] ? -1: [dict[@"applyStatus"]integerValue];
 
-        
+        _content=[Utilities nullAndNilCheck:dict[@"content"] replaceBy:@"暂无活动"];
     }
     return self;
 }
