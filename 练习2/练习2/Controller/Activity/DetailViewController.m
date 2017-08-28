@@ -32,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIView *applyEndView;
 @property (weak, nonatomic) IBOutlet UILabel *attendenceLbl;
 @property(strong,nonatomic)NSMutableArray *arr1;
+@property(strong,nonatomic)UIImageView *image;
 @end
 
 @implementation DetailViewController
@@ -201,73 +202,56 @@
     //从当前APP跳转到其他指定的APP中
     [[UIApplication sharedApplication] openURL:targetAppUrl];
 }
-
-
--(void)addlongPress:(UITableView *)cell{
-    //初始化一个长按手势，设置响应的事件为choose
-    UILongPressGestureRecognizer *longPress=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(choose:)];
-    //设置长按手势响应的时间
-    longPress.minimumPressDuration=1.0;
-    //将手势添加给cell
-    [cell addGestureRecognizer:longPress];
-    
-}
-
-    
-
-//添加单击手势事件
--(void)addTap:(id)any{
-    //初始化一个单击手势，设置响应事件为tapClick
-    UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapClick:)];
+//添加一个单击手势事件
+- (void)addTapGestureRecognizer: (id)any{
+    //初始化一个单击手势，设置它的响应事件为tapClick:
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapClick:)];
+    //用户交互启用
+    _activityImgView.userInteractionEnabled = YES;
+    //将手势添加给入参
     [any addGestureRecognizer:tap];
-    
 }
-
-
-
-//单击手势响应事件
--(void)tapClick:(UITapGestureRecognizer *)tap{
-    
-    if (tap.state==UIGestureRecognizerStateRecognized) {
+//小图单击手势响应事件
+- (void)tapClick: (UITapGestureRecognizer *)tap{
+    if (tap.state == UIGestureRecognizerStateRecognized){
+        NSLog(@"你单击了");
+        //拿到单击手势在_activityTableView中的位置
+        //CGPoint location = [tap locationInView:_activityImageView];
+        //通过上述的点拿到在_activityTableView对应的indexPath
+        //NSIndexPath *indexPath = [_activityTableView indexPathForRowAtPoint:location];
+        //防范式编程
+        // if (_arr !=nil && _arr.count != 0){
+        //根据行号拿到数组中对应的数据
+        //  ActivityModel *activity = _arr[indexPath.row];
+        //设置大图片的位置大小
+        _image = [[UIImageView alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+        //用户交互启用
+        _image.userInteractionEnabled = YES;
+        //设置大图背景颜色
+        _image.backgroundColor = [UIColor blackColor];
+        //_image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_activity.imgUrl]]];
+        //将http请求的字符串转换为nsurl
+        NSURL *URL = [NSURL URLWithString:_activity.imgUrl];
+        //依靠SDWebImage来异步地下载一张远程路径中的图片并三级缓存在项目中，同时为下载的时间周期过程中设置一张临时占位图
+        [_image sd_setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"aaa"]];
+        //设置图片地内容模式
+        _image.contentMode = UIViewContentModeScaleAspectFit;
+        //[UIApplication sharedApplication].keyWindow获得窗口实例，并将大图放置到窗口实例上，根据苹果规则，后添加的控件会盖住前面添加的控件
+        [[UIApplication sharedApplication].keyWindow addSubview:_image];
+        UITapGestureRecognizer *zoomIVTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(zoomTap:)];
+        [_image addGestureRecognizer:zoomIVTap];
         
-        
-        
-        //拿到长按手势在_activiyTableView中的位置
-        CGPoint location=[tap locationInView:_DetailView];
-        //通过上述的点拿到现在_activiyTableView对应的indexPath
-       // NSIndexPath *indexPath=[_DetailView indexPathForRowAtPoint:location];
-
-               //防范
-        if (_arr1 !=nil && _arr1.count !=0) {
-        // ActivityModel *activity=_arr1[indexPath.row];
-            //设置大图片的位置大小
-            _activityImgView=[[UIImageView alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-            //用户交互启用
-            _activityImgView.userInteractionEnabled=YES;
-           _activityImgView.backgroundColor=[UIColor blackColor];
-            // _zoomIV.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:activity.imgUrl]]];
-            // [_zoomIV sd_setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"aaa"]];
-            [_activityImgView sd_setImageWithURL:[NSURL URLWithString:_activity.imgUrl] placeholderImage:[UIImage imageNamed:@"aaa"]];
-            //设置图片的内容模式
-            _activityImgView.contentMode = UIViewContentModeScaleAspectFit;
-            //获得窗口实例，并将大图放置到窗口实例上，根据苹果规则，后添加的空间会覆盖前添加的控件
-            [[UIApplication sharedApplication].keyWindow addSubview:_activityImgView];
-            UITapGestureRecognizer *zoomIVtap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(zoomTap:)];
-            [_activityImgView addGestureRecognizer:zoomIVtap];
-        }
+        // }
     }
-    
-}
--(void)zoomTap:(UITapGestureRecognizer *)tap{
-    if (tap.state==UIGestureRecognizerStateRecognized) {
-        //把大图本身的东西扔掉（大图的手势）
-        [_activityImgView removeGestureRecognizer:tap];
-        //把自己从视图上移除
-        [_activityImgView removeFromSuperview];
-        //让图片彻底消失（不会造成内存的滥用)
-        _activityImgView=nil;
+}//大图的单击手势响应事件
+- (void)zoomTap: (UITapGestureRecognizer *)tap{
+    if (tap.state == UIGestureRecognizerStateRecognized) {
+        //把大图的本身东西扔掉
+        [_image removeGestureRecognizer:tap];
+        //把自己从父级视图中移除
+        [_image removeFromSuperview];
+        //彻底消失（这样就不会让内存滥用）
+        _image = nil;
     }
-    
 }
-
 @end
